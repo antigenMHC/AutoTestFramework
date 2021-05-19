@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="test">
+    <test name="login">
+        <classes>
+            <class name="cn.antigenmhc.test.suite.SuiteConfig"/>
+            <class name="cn.antigenmhc.test.suite.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="pay">
+        <classes>
+            <class name="cn.antigenmhc.test.suite.SuiteConfig"/>
+            <class name="cn.antigenmhc.test.suite.PayTest"/>
+            <class name="cn.antigenmhc.test.suite.IgnoreTest">
+                <methods>
+                    <exclude name="ingore2"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
