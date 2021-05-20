@@ -19,4 +19,16 @@
             </class>
         </classes>
     </test>
+
+    <test name="browser">
+        <parameter name="browser" value="chrome" />
+        <parameter name="url" value="https://www.baidu.com" />
+        <classes>
+            <class name="cn.antigenmhc.test.suite.BrowserTest" />
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="cn.antigenmhc.test.extentx.ExtentTestNGITestListener" />
+    </listeners>
 </suite>
