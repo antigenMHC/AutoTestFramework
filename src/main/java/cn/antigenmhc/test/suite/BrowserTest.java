@@ -3,8 +3,8 @@ package cn.antigenmhc.test.suite;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import cn.antigenmhc.test.tasks.baiduSearch;
-import cn.antigenmhc.test.util.Browser;
+import cn.antigenmhc.test.tasks.BaiduSearch;
+import cn.antigenmhc.test.util.BrowserSimpleFactory;
 import cn.antigenmhc.test.util.RangeDataByPoi;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -18,9 +18,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.DataProvider;
 
 
-
 public class BrowserTest {
-	private static Logger logger= Logger.getLogger(Test.class);
+	private static Logger logger = Logger.getLogger(Test.class);
 	WebDriver dr;
 	
 	@DataProvider(name="test")
@@ -32,18 +31,18 @@ public class BrowserTest {
 	@Parameters({"browser","url"})
 	@BeforeTest
 	public void beforeTest(String browser, String url){
-		logger.info("browser is "+browser+"&url is "+url);
-		dr = Browser.openBrowser(dr, browser, url);
+		logger.info("browser is " + browser + "&url is " + url);
+		dr = BrowserSimpleFactory.openBrowser(dr, browser, url);
 	}
 
 	@Test(dataProvider ="test")
-	public void browser(String s1, String s2) throws InterruptedException,IOException{
-		baiduSearch.search(dr, s1);
-		baiduSearch.search(dr, s2);
+	public void browser(String s1, String s2) throws InterruptedException, IOException{
+		BaiduSearch.search(dr, s1);
+		BaiduSearch.search(dr, s2);
 	}
 	
 	@AfterTest
 	public void quit(){
-		Browser.closeBrowser(dr);
+		BrowserSimpleFactory.closeBrowser(dr);
 	}
 }
